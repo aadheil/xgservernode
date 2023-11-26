@@ -34,3 +34,6 @@ xgserver.listen(PORT,()=>{
 
 
 
+pfServer.get('/',(req,res)=>{
+    res.send(`<h1>Project Fair Server Started!!!</h1>`)
+})

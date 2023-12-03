@@ -28,8 +28,22 @@ exports.addbike = async(req,res)=>{
 
 exports.getbikes = async(req,res)=>{
     try{
-        const allusers=await bikes.find()
-        res.status(200).json(allusers)
+        const allbikes=await bikes.find()
+        res.status(200).json(allbikes)
+
+    }
+    catch(err){
+        res.status(401).json(`Error!!! Transaction failed: ${err}`)
+
+    }
+}
+
+
+exports.deletebike = async(req,res)=>{
+    const {bikeid}=req.body
+    try{
+        await bikes.findByIdAndDelete({_id:bikeid})
+        res.status(200).json("Deleted")
 
     }
     catch(err){

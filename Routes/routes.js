@@ -17,5 +17,14 @@ router.post('/addbike',multerConfig.single('bikeimage'),bikeController.addbike)
 
 router.get('/allbikes',bikeController.getbikes)
 
+router.get('/allusers',usercontroller.getallusers)
+
+router.delete('/deleteuser',usercontroller.deleteuser)
+
+router.get('/admin/getbikes',bikeController.getbikes)
+
+router.delete('/deletebike',bikeController.deletebike)
+
+
 // export router
 module.exports = router

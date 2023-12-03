@@ -44,3 +44,27 @@ exports.login = async(req,res)=>{
 
     }
 }
+
+exports.getallusers = async(req,res)=>{
+    try{
+        const allusersdetails=await users.find()
+        res.status(200).json(allusersdetails)
+
+    }
+    catch(err){
+        res.status(401).json(`Error!!! Transaction failed: ${err}`)
+    }
+}
+
+exports.deleteuser = async(req,res)=>{
+    const {userid}=req.body
+    try{
+        await users.findByIdAndDelete({_id:userid})
+        res.status(200).json("Deleted")
+
+    }
+    catch(err){
+        res.status(401).json(`Error!!! Transaction failed: ${err}`)
+
+    }
+}

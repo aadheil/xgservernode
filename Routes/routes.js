@@ -25,6 +25,8 @@ router.get('/admin/getbikes',bikeController.getbikes)
 
 router.delete('/deletebike',bikeController.deletebike)
 
+router.put('/edituser:id',usercontroller.edituser)
+
 
 // export router
 module.exports = router
